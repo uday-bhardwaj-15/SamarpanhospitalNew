@@ -300,9 +300,9 @@ const Departments = () => {
       </section>
 
       {/* Search & Filter Section */}
-      <section className="py-8 border-b border-border/50 sticky top-20 z-40 glass">
+      <section className="py-6 border-b border-border/50 glass relative md:sticky md:top-20 z-40">
         <div className="container-custom">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+          <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
             {/* Search */}
             <div className="relative w-full md:w-96">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
@@ -310,7 +310,7 @@ const Departments = () => {
                 placeholder="Search departments..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-12 h-12 rounded-xl border-border/50 bg-background/50"
+                className="pl-12 h-12 rounded-xl border-border/50 bg-background/50 w-full"
               />
               {searchQuery && (
                 <button
@@ -424,11 +424,19 @@ const Departments = () => {
       </section>
 
       {/* Department Modal */}
-      <Dialog open={!!selectedDept} onOpenChange={() => setSelectedDept(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+      <Dialog open={!!selectedDept} onOpenChange={() => setSelectedDept(null)} >
+        <DialogContent className="
+    w-[95vw]
+    max-w-4xl
+    max-h-[90vh]
+    overflow-y-auto
+    overflow-x-hidden
+    p-0 sm:p-6
+    scrollbar-hide
+  " >
           {selectedDept && (
             <>
-              <div className="relative h-64 -mx-6 -mt-6 mb-6 overflow-hidden rounded-t-lg">
+              <div className="relative h-64 mb-6 overflow-hidden rounded-t-lg mx-0 sm:-mx-6 sm:-mt-6 ">
                 <img
                   src={getImageSrc(selectedDept.image)}
                   alt={selectedDept.name}
@@ -444,7 +452,7 @@ const Departments = () => {
                   </DialogTitle>
                 </div>
               </div>
-
+<div className="px-4 sm:px-0">
               <DialogDescription className="text-base text-muted-foreground mb-6">
                 {selectedDept.fullDesc}
               </DialogDescription>
@@ -505,14 +513,15 @@ const Departments = () => {
               </div>
 
               {/* CTA */}
-              <div className="flex gap-4">
-                <Button variant="hero" className="flex-1">
+              <div className="flex gap-4 mb-4">
+                <Button variant="hero" className="flex-1" onClick={() => window.location.href="/contact"}>
                   Book Appointment
                 </Button>
                 <Button variant="outline" className="flex-1">
                   <Phone className="w-4 h-4 mr-2" />
                   Call Now
                 </Button>
+              </div>
               </div>
             </>
           )}

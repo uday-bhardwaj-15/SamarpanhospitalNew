@@ -33,7 +33,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section id="testimonials" className="section-padding bg-gradient-to-br from-primary via-teal-600 to-teal-700 relative overflow-hidden">
+    <section id="testimonials" className="section-padding bg-gradient-to-br from-primary via-teal-600 to-teal-700 relative overflow-hidden ">
       {/* Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute top-20 left-10 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
@@ -57,11 +57,17 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory
+  md:grid md:grid-cols-2 md:overflow-visible
+  max-w-5xl mx-auto
+  pb-4 scrollbar-hide ">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="group bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all duration-500"
+              className="group bg-white/10 backdrop-blur-xl border border-white/20
+  rounded-3xl p-8 hover:bg-white/15 transition-all duration-500
+  min-w-[85%] sm:min-w-[70%] snap-center
+  md:min-w-0  snap-x snap-mandatory"
             >
               {/* Quote Icon */}
               <Quote className="w-10 h-10 text-accent/50 mb-4" />
@@ -99,9 +105,9 @@ const TestimonialsSection = () => {
         {/* Trust Indicators */}
         <div className="flex flex-wrap justify-center items-center gap-12 mt-20 pt-10 border-t border-white/10">
           {[
-            { label: "Google Rating", value: "4.9", icon: "⭐" },
-            { label: "Practo Reviews", value: "4.8", icon: "⭐" },
-            { label: "Happy Patients", value: "50K+", icon: "💚" },
+            { label: "Google Rating", value: "4.2", icon: "⭐" },
+            { label: "Justdial Reviews", value: "4.8", icon: "⭐" },
+            { label: "Happy Patients", value: "20K+", icon: "💚" },
           ].map((item, index) => (
             <div key={index} className="text-center">
               <div className="text-4xl font-bold text-white flex items-center gap-2 justify-center">

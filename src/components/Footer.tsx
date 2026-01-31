@@ -9,16 +9,17 @@ import {
   ArrowRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: "About Us", href: "#about" },
-    { name: "Our Doctors", href: "#doctors" },
-    { name: "Departments", href: "#departments" },
-    { name: "Patient Care", href: "#" },
-    { name: "Careers", href: "#" },
+    { name: "About Us", href: "/about" },
+    { name: "Our Doctors", href: "/doctors" },
+    { name: "Departments", href: "#/departments" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const services = [
@@ -102,13 +103,13 @@ const Footer = () => {
             <ul className="space-y-4">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-white/60 hover:text-accent transition-colors text-sm flex items-center gap-2 group"
                   >
                     <span className="w-0 h-0.5 bg-accent group-hover:w-3 transition-all duration-300" />
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -172,20 +173,27 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="container-custom py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/40 text-sm text-center md:text-left">
-            © {currentYear} Samarpan Hospital Hospital. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6 text-sm">
-            <a href="#" className="text-white/40 hover:text-accent transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-white/40 hover:text-accent transition-colors">
-              Terms of Service
-            </a>
-          </div>
-        </div>
-      </div>
+  <div className="container-custom py-6 flex flex-col items-center justify-center gap-2 text-center">
+    <p className="text-white/40 text-sm">
+      © {currentYear} Samarpan Hospital. All rights reserved.
+    </p>
+
+    <p className="text-white/40 text-sm flex items-center gap-1">
+      Made with
+      <span className="text-red-500">❤️</span>
+      by
+      <a
+        href="https://medimize.in"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-white/70 hover:text-white transition underline underline-offset-4"
+      >
+        Medimize
+      </a>
+    </p>
+  </div>
+</div>
+
     </footer>
   );
 };

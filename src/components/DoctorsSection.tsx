@@ -4,6 +4,7 @@ import doctor1 from "@/assets/doctor-1.jpg";
 import doctor2 from "@/assets/doctor-2.jpg";
 import doctor3 from "@/assets/doctor-3.jpg";
 import doctor4 from "@/assets/doctor-4.jpg";
+import Image from "next/image";
 
 const doctors = [
   {
@@ -59,17 +60,24 @@ const DoctorsSection = () => {
         </div>
 
         {/* Doctors Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex gap-6 overflow-x-auto pb-4
+    sm:grid sm:grid-cols-2
+    lg:grid-cols-4
+    sm:overflow-visible
+    scrollbar-hide snap-x snap-mandatory">
           {doctors.map((doctor, index) => (
             <div
               key={index}
-              className="group premium-card overflow-hidden"
+              className="group premium-card overflow-hidden
+             min-w-[280px] sm:min-w-0 snap-x snap-mandatory"
             >
               {/* Image */}
               <div className="relative h-72 overflow-hidden">
-                <img 
+                <Image 
                   src={doctor.image} 
                   alt={doctor.name}
+                  width={100}
+                  height={100}
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
@@ -106,7 +114,7 @@ const DoctorsSection = () => {
                 </div>
 
                 {/* CTA */}
-                <Button variant="glass" size="sm" className="w-full">
+                <Button variant="glass" size="sm" className="w-full" onClick={() => window.location.href = "/contact"}>
                   <Calendar className="w-4 h-4" />
                   Book Appointment
                 </Button>
@@ -117,7 +125,7 @@ const DoctorsSection = () => {
 
         {/* View All */}
         <div className="text-center mt-16">
-          <Button variant="outline" size="lg">
+          <Button variant="outline" size="lg" onClick={() => window.location.href = "/doctors"}>
             View All Doctors
             <ArrowRight className="w-5 h-5" />
           </Button>

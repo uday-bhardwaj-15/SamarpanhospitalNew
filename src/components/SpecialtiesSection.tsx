@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import { ArrowRight, AlertCircle, HeartPulse, Activity, Stethoscope, FlaskConical } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -35,6 +37,8 @@ const specialties = [
 ];
 
 const SpecialtiesSection = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
     <section className="section-padding bg-background">
       <div className="container-custom">
@@ -52,9 +56,13 @@ const SpecialtiesSection = () => {
 
         {/* Specialties List */}
         <div className="space-y-4 max-w-4xl mx-auto">
-          {specialties.map((specialty, index) => (
-            <div
+          {specialties.map((specialty, index) => {
+                    const isOpen = openIndex === index
+                  
+    return(
+<div
               key={index}
+              onClick={() => setOpenIndex(isOpen ? null : index)}
               className={`group flex flex-col md:flex-row items-start md:items-center gap-6 p-6 md:p-8 rounded-3xl transition-all duration-500 cursor-pointer ${
                 specialty.highlight 
                   ? "bg-gradient-to-r from-primary via-teal-500 to-primary bg-[length:200%_100%] hover:bg-right text-primary-foreground shadow-glow" 
@@ -83,9 +91,11 @@ const SpecialtiesSection = () => {
                 }`}>
                   {specialty.title}
                 </h3>
-                <p className={specialty.highlight ? "text-white/80" : "text-muted-foreground"}>
-                  {specialty.description}
-                </p>
+               {isOpen && (
+  <p className={specialty.highlight ? "text-white/80" : "text-muted-foreground"}>
+    {specialty.description}
+  </p>
+)}
               </div>
 
               {/* Arrow */}
@@ -94,17 +104,23 @@ const SpecialtiesSection = () => {
                   ? "bg-white/20 group-hover:bg-white/30" 
                   : "bg-primary/5 group-hover:bg-primary group-hover:text-white"
               }`}>
-                <ArrowRight className={`w-5 h-5 group-hover:translate-x-1 transition-transform ${
-                  specialty.highlight ? "text-white" : "text-primary group-hover:text-white"
-                }`} />
+                <ArrowRight
+  className={`w-5 h-5 transition-transform duration-300 ${
+    isOpen ? "rotate-90" : ""
+  } ${
+    specialty.highlight ? "text-white" : "text-primary group-hover:text-white"
+  }`}
+/>
               </div>
             </div>
-          ))}
+    )
+            
+})}
         </div>
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <Button variant="hero" size="lg">
+          <Button variant="hero" size="lg" onClick={()=>window.location.href="/about"}>
             Explore All Services
             <ArrowRight className="w-5 h-5" />
           </Button>

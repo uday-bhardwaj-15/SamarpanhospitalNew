@@ -47,12 +47,12 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-16 animate-fade-up">
-            <Button variant="hero" size="xl" className="group">
+            <Button variant="hero" size="xl" className="group" onClick={() => window.location.href = "/contact"}>
               <Calendar className="w-5 h-5" />
               Book Appointment
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="hero-light" size="xl" className="group">
+            <Button variant="hero-light" size="xl" className="group" onClick={() => window.location.href = "/"}>
               <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
                 <Play className="w-4 h-4 fill-current" />
               </div>

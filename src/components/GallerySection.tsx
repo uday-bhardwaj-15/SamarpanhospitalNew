@@ -4,6 +4,8 @@ import patientRoomImg from "@/assets/patient-room.jpg";
 import icuImg from "@/assets/icu.jpg";
 import labImg from "@/assets/laboratory.jpg";
 import surgeryImg from "@/assets/surgery.jpg";
+import Image from "next/image";
+import Link from "next/link";
 
 const galleryItems = [
   {
@@ -74,9 +76,11 @@ const GallerySection = () => {
               }`}
             >
               {/* Image */}
-              <img 
+              <Image 
                 src={item.image} 
                 alt={item.title}
+                width={100}
+                height={100}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
               
@@ -101,13 +105,13 @@ const GallerySection = () => {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <a 
-            href="#contact" 
+          <Link 
+            href="gallery" 
             className="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors group"
           >
             Schedule a Hospital Tour
             <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

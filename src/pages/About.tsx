@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroImg from "@/assets/hero-hospital.jpg";
 import { getImageSrc } from "@/lib/utils";
+import Image from "next/image";
 
 const timeline = [
   {
@@ -112,8 +113,10 @@ const About = () => {
             <div className="relative">
               <div className="aspect-[4/5] rounded-3xl overflow-hidden border-4 border-primary/20 shadow-glow">
                 <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                  <img
-                src="https://cdn.hexahealth.com/Image/webp/480x480/1731500065595-956405713.webp"
+                  <Image
+                src="/Director.webp"
+                width={500}
+                height={500}
                 alt="Dr. Gopesh Kumar Modi"
                 className="w-full h-full object-cover object-top"
               />
@@ -122,7 +125,7 @@ const About = () => {
               
               {/* Floating Badge */}
               <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-6 rounded-2xl shadow-glow">
-                <p className="text-3xl font-bold">30+</p>
+                <p className="text-3xl font-bold">10+</p>
                 <p className="text-sm">Years Leading</p>
               </div>
             </div>

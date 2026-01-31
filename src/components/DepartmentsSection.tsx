@@ -59,11 +59,17 @@ const DepartmentsSection = () => {
         </div>
 
         {/* Departments Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className=" flex gap-6 overflow-x-auto pb-4
+  md:grid md:grid-cols-2
+  lg:grid-cols-3
+  md:overflow-visible
+  scrollbar-hide">
           {departments.map((dept, index) => (
             <div
               key={index}
-              className="group premium-card overflow-hidden"
+              className="group premium-card overflow-hidden
+             min-w-[280px] sm:min-w-[320px]
+             md:min-w-0"
             >
               {/* Image */}
               <div className="relative h-48 overflow-hidden">
@@ -98,7 +104,7 @@ const DepartmentsSection = () => {
                 </ul>
 
                 {/* CTA */}
-                <Button variant="ghost" className="w-full justify-between group/btn hover:bg-primary/5">
+                <Button variant="ghost" className="w-full justify-between group/btn hover:bg-primary/5" onClick={() => window.location.href = "/departments"}>
                   Learn More
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-2 transition-transform" />
                 </Button>
@@ -109,7 +115,7 @@ const DepartmentsSection = () => {
 
         {/* View All Button */}
         <div className="text-center mt-16">
-          <Button variant="hero" size="lg">
+          <Button variant="hero" size="lg" onClick={() => window.location.href = "/departments"}>
             View All Departments
             <ArrowRight className="w-5 h-5" />
           </Button>

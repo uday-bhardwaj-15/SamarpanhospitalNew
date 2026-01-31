@@ -180,7 +180,7 @@ const Doctors = () => {
       </section>
 
       {/* Search & Filter Section */}
-      <section className="py-8 border-b border-border/50 sticky top-20 z-40 glass">
+      <section className="py-6 border-b border-border/50 glass relative md:sticky md:top-20 z-40">
         <div className="container-custom">
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
             {/* Search */}
@@ -317,13 +317,19 @@ const Doctors = () => {
 
       {/* Doctor Modal */}
       <Dialog open={!!selectedDoctor} onOpenChange={() => setSelectedDoctor(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className=" w-[95vw]
+    max-w-4xl
+    max-h-[90vh]
+    overflow-y-auto
+    overflow-x-hidden
+    p-0 sm:p-6 scrollbar-hide">
           {selectedDoctor && (
-            <>
+            <><div className="px-4 sm:px-0">
+    
               <div className="flex flex-col md:flex-row gap-8">
                 {/* Left Column - Image & Quick Info */}
                 <div className="md:w-1/3">
-                  <div className="relative rounded-2xl overflow-hidden mb-4">
+                  <div className="relative rounded-2xl overflow-hidden mb-4 w-full">
                     <img
                       src={getImageSrc(selectedDoctor.image)}
                       alt={selectedDoctor.name}
@@ -414,7 +420,7 @@ const Doctors = () => {
                   </div>
 
                   {/* CTA */}
-                  <div className="flex gap-4">
+                  <div className="flex flex-col sm:flex-row gap-4 mb-4">
                     <Button variant="hero" className="flex-1">
                       <Calendar className="w-4 h-4 mr-2" />
                       Book Appointment
@@ -425,6 +431,7 @@ const Doctors = () => {
                     </Button>
                   </div>
                 </div>
+              </div>
               </div>
             </>
           )}

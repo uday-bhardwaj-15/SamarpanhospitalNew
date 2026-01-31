@@ -7,37 +7,45 @@ import {
   HeartPulse,
   ArrowUpRight
 } from "lucide-react";
+import Link from "next/link";
 
 const quickLinks = [
   {
     icon: HeartPulse,
     title: "Dialysis Services",
     description: "State-of-the-art dialysis units with latest technology",
+    href:"/departments"
   },
   {
     icon: Building2,
     title: "Departments",
     description: "Explore our specialized nephrology departments",
+     href:"/departments"
   },
   {
     icon: Users,
     title: "Our Doctors",
     description: "Meet our team of expert nephrologists",
+     href:"/doctors"
   },
   {
     icon: CalendarCheck,
     title: "Appointments",
     description: "Book your consultation online easily",
+     href:"/contact"
   },
   {
     icon: Phone,
     title: "Emergency",
     description: "24/7 emergency kidney care available",
+     href:"/contact"
   },
   {
     icon: Stethoscope,
     title: "Health Check",
     description: "Comprehensive kidney screening packages",
+    href:"/contact"
+  
   },
 ];
 
@@ -55,11 +63,13 @@ const QuickLinksSection = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {quickLinks.map((link, index) => (
-            <a
+            <Link
               key={index}
-              href={`#${link.title.toLowerCase().replace(" ", "-")}`}
+              href={link.href}
               className="group premium-card p-6 text-center cursor-pointer relative overflow-hidden"
             >
+              
+            
               {/* Hover Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
@@ -80,7 +90,8 @@ const QuickLinksSection = () => {
               <div className="absolute top-4 right-4 w-8 h-8 rounded-lg bg-primary/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:bg-primary/10">
                 <ArrowUpRight className="w-4 h-4 text-primary" />
               </div>
-            </a>
+              
+            </Link>
           ))}
         </div>
       </div>
