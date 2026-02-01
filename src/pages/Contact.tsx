@@ -12,6 +12,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { CheckCircle2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useToast } from "@/hooks/use-toast";
@@ -32,7 +40,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    details: ["samarpankidney1@gmail.com", "support@hospital.com"],
+    details: ["samarpanhospitalonline@gmail.com", ],
     color: "primary",
   },
   {
@@ -56,6 +64,8 @@ const departments = [
 
 const Contact = () => {
   const { toast } = useToast();
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -65,18 +75,40 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  if (isSubmitting) return;
+
+  setIsSubmitting(true);
+
+  const [firstName, ...lastNameArr] = formData.name.trim().split(" ");
+  const lastName = lastNameArr.join(" ") || "N/A";
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email: formData.email,
+        phone: formData.phone,
+        subject: formData.department,
+        department: formData.department,
+        reason: "Contact Page - Samarpan Hospital",
+        message: formData.message,
+        preferredContact: "Email",
+        isEmergency: false,
+      }),
     });
-    
+
+    if (!res.ok) throw new Error("Failed");
+
+    toast({
+      title: "Message Sent Successfully",
+      description: "Samarpan Hospital will contact you shortly.",
+    });
+setShowSuccessModal(true);
     setFormData({
       name: "",
       email: "",
@@ -84,8 +116,17 @@ const Contact = () => {
       department: "",
       message: "",
     });
+  } catch (error) {
+    toast({
+      title: "Message Failed",
+      description: "Please try again or call Samarpan Hospital directly.",
+      variant: "destructive",
+    });
+  } finally {
     setIsSubmitting(false);
-  };
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -312,6 +353,29 @@ const Contact = () => {
           </div>
         </div>
       </section>
+<Dialog open={showSuccessModal} onOpenChange={setShowSuccessModal}>
+  <DialogContent className="max-w-md text-center">
+    <DialogHeader>
+      <div className="flex justify-center mb-4">
+        <CheckCircle2 className="w-14 h-14 text-green-500" />
+      </div>
+      <DialogTitle className="text-2xl">
+        Message Sent Successfully
+      </DialogTitle>
+      <DialogDescription className="text-muted-foreground mt-2">
+        Thank you for contacting <strong>Samarpan Hospital</strong>.<br />
+        Our team will get back to you within 24 hours.
+      </DialogDescription>
+    </DialogHeader>
+
+    <Button
+      className="mt-6 w-full"
+      onClick={() => setShowSuccessModal(false)}
+    >
+      Close
+    </Button>
+  </DialogContent>
+</Dialog>
 
       <Footer />
     </div>
