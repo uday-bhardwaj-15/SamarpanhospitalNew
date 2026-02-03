@@ -283,18 +283,7 @@ const About = () => {
 
           {/* Group Photo Placeholder */}
           <div className="relative aspect-[21/9] rounded-3xl overflow-hidden border-4 border-primary/20 shadow-card">
-            <div className="w-full h-full bg-gradient-to-br from-primary/10 via-background to-accent/10 flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="w-24 h-24 rounded-full bg-primary/20 mx-auto mb-4 flex items-center justify-center">
-                  <Users className="w-12 h-12 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold text-foreground mb-2">Team Group Photo</h3>
-                <p className="text-muted-foreground max-w-md mx-auto">
-                  A placeholder for the Samarpan Hospital team group photograph. 
-                  Upload your team photo to showcase your dedicated staff.
-                </p>
-              </div>
-            </div>
+            <Image src="/team.jpeg" alt={"team photo"} width={500} height={500} className="w-full h-full object-cover"/>
           </div>
 
           {/* Team Stats */}

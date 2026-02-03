@@ -300,7 +300,7 @@ const Departments = () => {
       </section>
 
       {/* Search & Filter Section */}
-      <section className="py-6 border-b border-border/50 glass relative md:sticky md:top-20 z-40">
+      <section className="py-6 border-b border-border/50 glass relative  md:top-20 z-40">
         <div className="container-custom">
           <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
             {/* Search */}

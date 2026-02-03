@@ -3,42 +3,51 @@ import { Button } from "@/components/ui/button";
 import doctor1 from "@/assets/doctor-1.jpg";
 import doctor2 from "@/assets/doctor-2.jpg";
 import doctor3 from "@/assets/doctor-3.jpg";
-import doctor4 from "@/assets/doctor-4.jpg";
+import doctor4 from "@/assets/dr-kk-thakur.jpeg";
 import Image from "next/image";
 
 const doctors = [
+  // {
+  //   name: "Dr. Priya Sharma",
+  //   specialty: "Senior Nephrologist",
+  //   experience: "18+ Years",
+  //   rating: 4.9,
+  //   education: "MBBS, MD, DM (Nephrology)",
+  //   image: doctor1,
+  // },
+  // {
+  //   name: "Dr. Rajesh Kumar",
+  //   specialty: "Transplant Surgeon",
+  //   experience: "22+ Years",
+  //   rating: 4.8,
+  //   education: "MBBS, MS, MCh (Urology)",
+  //   image: doctor2,
+  // },
+  // {
+  //   name: "Dr. Anita Patel",
+  //   specialty: "Dialysis Specialist",
+  //   experience: "15+ Years",
+  //   rating: 4.9,
+  //   education: "MBBS, MD (Medicine), DM",
+  //   image: doctor3,
+  // },
+  // {
+  //   name: "Dr. Vikram Singh",
+  //   specialty: "Critical Care Nephrologist",
+  //   experience: "12+ Years",
+  //   rating: 4.7,
+  //   education: "MBBS, MD, FNB (Nephrology)",
+  //   image: doctor4,
+  // },
   {
-    name: "Dr. Priya Sharma",
-    specialty: "Senior Nephrologist",
-    experience: "18+ Years",
-    rating: 4.9,
-    education: "MBBS, MD, DM (Nephrology)",
-    image: doctor1,
-  },
-  {
-    name: "Dr. Rajesh Kumar",
-    specialty: "Transplant Surgeon",
-    experience: "22+ Years",
-    rating: 4.8,
-    education: "MBBS, MS, MCh (Urology)",
-    image: doctor2,
-  },
-  {
-    name: "Dr. Anita Patel",
-    specialty: "Dialysis Specialist",
-    experience: "15+ Years",
-    rating: 4.9,
-    education: "MBBS, MD (Medicine), DM",
-    image: doctor3,
-  },
-  {
-    name: "Dr. Vikram Singh",
-    specialty: "Critical Care Nephrologist",
-    experience: "12+ Years",
-    rating: 4.7,
-    education: "MBBS, MD, FNB (Nephrology)",
-    image: doctor4,
-  },
+  name: "Dr. KK Thakur",
+  specialty: "Anesthesiologist",
+  experience: "5+ Years",
+  rating: 4.8,
+  education: "MBBS, MD (Anesthesiology)",
+  image: doctor4,
+},
+
 ];
 
 const DoctorsSection = () => {

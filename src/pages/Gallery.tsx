@@ -179,7 +179,7 @@ const Gallery = () => {
       </section>
 
       {/* Category Filter */}
-      <section className="py-8 border-b border-border/50 sticky top-20 z-40 glass">
+      <section className="py-8 border-b border-border/50  top-20 z-40 glass">
         <div className="container-custom">
           <div className="flex flex-wrap gap-2 justify-center">
             {categories.map((category) => (
