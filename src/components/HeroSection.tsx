@@ -28,7 +28,7 @@ const HeroSection = () => {
           <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-xl border border-white/20 px-5 py-2.5 rounded-full mb-8 animate-fade-up">
             <span className="w-2.5 h-2.5 bg-accent rounded-full animate-pulse" />
             <span className="text-sm font-medium text-white/90">
-              India's Most Advanced Kidney Care Center
+             Central India's Most Advanced Kidney Care Center
             </span>
           </div>
 

@@ -154,7 +154,8 @@ const Footer = () => {
                 </div>
                 <div className="text-sm">
                   <a href="tel:+917554026900" className="text-white/60 hover:text-accent transition-colors block">
-                    +91 755 402 6900
+                    +91 755 402 6900,<br/>
+                    +91 942 449 1234
                   </a>
                   <span className="text-accent text-xs font-medium">24/7 Emergency</span>
                 </div>

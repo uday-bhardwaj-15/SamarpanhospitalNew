@@ -28,7 +28,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+91 755 402 6900"],
+    details: ["+91 755 402 6900","+91 942 449 1234"],
     color: "primary",
   },
   {

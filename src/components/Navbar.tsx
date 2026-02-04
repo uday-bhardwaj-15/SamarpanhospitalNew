@@ -87,7 +87,7 @@ const Navbar = () => {
             href="tel:+917554026900" 
             className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300 ${
               showScrolledStyle 
-                ? 'text-foreground hover:text-primary hover:text-primary/5' 
+                ? 'text-foreground hover:text-primary hover:text-pink' 
                 : 'text-white/90 hover:text-white hover:bg-white/10'
             }`}
           >
@@ -99,7 +99,7 @@ const Navbar = () => {
               <span className="text-sm font-semibold">24/7</span>
             </div>
           </a>
-          <Button variant={showScrolledStyle ? "hero" : "hero-light"} size="default">
+          <Button variant={showScrolledStyle ? "hero" : "hero-light"} size="default" onClick={() => window.location.href="/contact"}>
             Book Appointment
             <ChevronRight className="w-4 h-4" />
           </Button>
