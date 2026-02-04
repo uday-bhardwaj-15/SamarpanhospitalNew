@@ -134,7 +134,7 @@ const DoctorsSection = () => {
 
         {/* View All */}
         <div className="text-center mt-16">
-          <Button variant="outline" size="lg" onClick={() => window.location.href = "/doctors"}>
+          <Button variant="outline" size="lg" onClick={() => window.location.href = "/team"}>
             View All Doctors
             <ArrowRight className="w-5 h-5" />
           </Button>

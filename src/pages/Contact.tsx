@@ -46,7 +46,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Address",
-    details: ["Samarpan Hospital Kidney and Multispeciality Center", "Plot No 34/35, Viceroy Park Rd,", "Anamika Nagar, Rohit Nagar,", "Bawadiya Kalan, Gulmohar Colony,", "Bhopal, MP 462039"],
+    details: ["Samarpan Hospital Kidney and Multispeciality Center", "Near Berchha Mawa Bhandar,", "Viceroy Park Rd, Rohit Nagar", "Bawadiya Kalan, Bhopal, MP 462039"],
     color: "primary",
   },
 ];
@@ -263,7 +263,7 @@ setShowSuccessModal(true);
               {/* Map Placeholder */}
               <div className="premium-card overflow-hidden h-80">
                 <div className="w-full h-full bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3666.966774627447!2d77.44747517590494!3d23.2079032093848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c4300645c92c5%3A0x6295cf0706853229!2sSamarpan%20Kidney%20And%20Multispeciality%20Center!5e0!3m2!1sen!2sin!4v1738331181518!5m2!1sen!2sin" width="100%" height="auto"  loading="lazy" className="w-full h-full"></iframe>  
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.5303480564453!2d77.4388285!3d23.187335299999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c43bcee391d45%3A0xd4fdab7bbe752ef!2sSamarpan%20Hospital%20Kidney%20and%20Multispeciality%20Center!5e0!3m2!1sen!2sin!4v1770205933221!5m2!1sen!2sin"  width="100%" height="auto"  loading="lazy" className="w-full h-full"></iframe>
                 </div>
               </div>
 

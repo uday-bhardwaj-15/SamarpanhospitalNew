@@ -77,7 +77,7 @@ const allDepartments = [
     fullDesc:
       "The Urology department focuses on diseases of the urinary system and male reproductive organs. Our specialists manage stone disease, infections, and surgical urological conditions with advanced techniques.",
     image:
-      "https://images.unsplash.com/photo-1631815587646-b85a3dbfd5da?w=900&auto=format&fit=crop&q=60",
+      "/anatomy-drawing-vintage-style.jpg",
     features: ["Urinary Tract Care", "Stone Treatment", "Urological Procedures"],
     doctors: 5,
     experience: "20+ Years",
@@ -247,7 +247,7 @@ const allDepartments = [
     fullDesc:
       "The General Ward provides well-monitored inpatient care with 24/7 nursing support, ensuring patient comfort and recovery.",
     image:
-      "https://images.unsplash.com/photo-1576765607924-1c8d9c2c0d8f?w=900&auto=format&fit=crop&q=60",
+      "https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=1228&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     features: ["Inpatient Care", "24/7 Nursing", "Recovery Support"],
     doctors: 6,
     experience: "18+ Years",

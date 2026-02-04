@@ -44,7 +44,14 @@ const Navbar = () => {
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <Image src="/logo-trans.png" alt="Logo" width={50} height={50} />
+        <Image
+  src={showScrolledStyle ? "/logo-trans.png" : "/logo-trans-white.png"}
+  alt="Samarpan Hospital Logo"
+  width={50}
+  height={50}
+  priority
+  className="transition-all duration-300"
+/>
           <div className="flex flex-col">
             <span className={`text-xl font-bold transition-colors duration-300 ${showScrolledStyle ? 'text-foreground' : 'text-white'}`}>
               Samarpan Hospital

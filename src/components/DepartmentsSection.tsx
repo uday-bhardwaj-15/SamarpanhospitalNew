@@ -35,7 +35,7 @@ const departments = [
     description:
       "Advanced care for urinary tract disorders and urological conditions.",
     image:
-      "https://images.unsplash.com/photo-1631815587646-b85a3dbfd5da?w=900&auto=format&fit=crop&q=60",
+      "/anatomy-drawing-vintage-style.jpg",
     features: ["Urinary Tract Care", "Stone Treatment", "Urological Procedures"],
     color: "from-primary to-teal-600",
   },

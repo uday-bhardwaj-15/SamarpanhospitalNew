@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -17,24 +18,24 @@ const Footer = () => {
   const quickLinks = [
     { name: "About Us", href: "/about" },
     { name: "Our Doctors", href: "/doctors" },
-    { name: "Departments", href: "#/departments" },
+    { name: "Departments", href: "/departments" },
     { name: "Gallery", href: "/gallery" },
     { name: "Contact", href: "/contact" },
   ];
 
   const services = [
-    { name: "Dialysis", href: "#" },
-    { name: "Kidney Transplant", href: "#" },
-    { name: "Nephrology", href: "#" },
-    { name: "Critical Care", href: "#" },
-    { name: "Lab Services", href: "#" },
+    { name: "Dialysis", href: "/departments" },
+    { name: "Kidney Transplant", href: "/departments" },
+    { name: "Nephrology", href: "/departments" },
+    { name: "Critical Care", href: "/departments" },
+    { name: "Lab Services", href: "/departments" },
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Youtube, href: "#", label: "Youtube" },
+    { icon: Facebook, href: "https://www.facebook.com/samarpankidneyhospital/", label: "Facebook" },
+    // { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Instagram, href: "https://www.instagram.com/samarpan.hospital.bhopal/", label: "Instagram" },
+    { icon: Youtube, href: "https://youtube.com/@samarpansuperspecialitycli4549?si=f-G2BuK2yDgblUoR", label: "Youtube" },
   ];
 
   return (
@@ -70,8 +71,8 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <a href="#home" className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-teal-400 flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">R</span>
+              <div className="w-12 h-12 rounded-2xl  flex items-center justify-center">
+                <Image src="/logo-trans-white.png" alt="Logo" width={50} height={50} />
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-white">Samarpan Hospital</span>
@@ -143,8 +144,8 @@ const Footer = () => {
                 </div>
                 <span className="text-white/60 text-sm leading-relaxed">
                   Samarpan Hospital Kidney and Multispeciality Center,<br />
-                  Plot No 34/35, Viceroy Park Rd, Anamika Nagar, Rohit Nagar,<br />
-                  Bawadiya Kalan, Gulmohar Colony, Bhopal, MP 462039
+                  Near Berchha Mawa Bhandar, Viceroy Park Rd, Rohit Nagar,<br />
+                  Bawadiya Kalan, Bhopal, MP 462039
                 </span>
               </li>
               <li className="flex items-center gap-4">
@@ -162,8 +163,8 @@ const Footer = () => {
                 <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5 text-accent" />
                 </div>
-                <a href="mailto:samarpankidney1@gmail.com" className="text-white/60 hover:text-accent transition-colors text-sm">
-                  samarpankidney1@gmail.com
+                <a href="mailto:samarpanhospitalonline@gmail.com" className="text-white/60 hover:text-accent transition-colors text-sm">
+                  samarpanhospitalonline@gmail.com
                 </a>
               </li>
             </ul>
