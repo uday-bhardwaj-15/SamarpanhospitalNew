@@ -1,56 +1,13 @@
 import { Star, Award, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import doctor1 from "@/assets/doctor-1.jpg";
-import doctor2 from "@/assets/doctor-2.jpg";
-import doctor3 from "@/assets/doctor-3.jpg";
-import doctor4 from "@/assets/dr-kk-thakur.jpeg";
 import Image from "next/image";
-
-const doctors = [
-  // {
-  //   name: "Dr. Priya Sharma",
-  //   specialty: "Senior Nephrologist",
-  //   experience: "18+ Years",
-  //   rating: 4.9,
-  //   education: "MBBS, MD, DM (Nephrology)",
-  //   image: doctor1,
-  // },
-  // {
-  //   name: "Dr. Rajesh Kumar",
-  //   specialty: "Transplant Surgeon",
-  //   experience: "22+ Years",
-  //   rating: 4.8,
-  //   education: "MBBS, MS, MCh (Urology)",
-  //   image: doctor2,
-  // },
-  // {
-  //   name: "Dr. Anita Patel",
-  //   specialty: "Dialysis Specialist",
-  //   experience: "15+ Years",
-  //   rating: 4.9,
-  //   education: "MBBS, MD (Medicine), DM",
-  //   image: doctor3,
-  // },
-  // {
-  //   name: "Dr. Vikram Singh",
-  //   specialty: "Critical Care Nephrologist",
-  //   experience: "12+ Years",
-  //   rating: 4.7,
-  //   education: "MBBS, MD, FNB (Nephrology)",
-  //   image: doctor4,
-  // },
-  {
-  name: "Dr. KK Thakur",
-  specialty: "Anesthesiologist",
-  experience: "5+ Years",
-  rating: 4.8,
-  education: "MBBS, MD (Anesthesiology)",
-  image: doctor4,
-},
-
-];
+import { allDoctors } from "@/lib/data";
+import { getImageSrc } from "@/lib/utils";
 
 const DoctorsSection = () => {
+  // Take first 4 doctors for the home page sections
+  const doctors = allDoctors.slice(0, 4);
+
   return (
     <section id="doctors" className="section-padding bg-gradient-subtle">
       <div className="container-custom">
@@ -83,10 +40,10 @@ const DoctorsSection = () => {
               {/* Image */}
               <div className="relative h-72 overflow-hidden">
                 <Image 
-                  src={doctor.image} 
+                  src={getImageSrc(doctor.image)} 
                   alt={doctor.name}
-                  width={100}
-                  height={100}
+                  width={400} // Added width/height for Next.js Image optimization
+                  height={500}
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
@@ -123,7 +80,7 @@ const DoctorsSection = () => {
                 </div>
 
                 {/* CTA */}
-                <Button variant="glass" size="sm" className="w-full" onClick={() => window.location.href = "/contact"}>
+                <Button variant="glass" size="sm" className="w-full" onClick={() => window.location.href = `/team?doctorId=${doctor.id}`}>
                   <Calendar className="w-4 h-4" />
                   Book Appointment
                 </Button>

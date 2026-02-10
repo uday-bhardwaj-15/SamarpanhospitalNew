@@ -139,7 +139,7 @@ const Navbar = () => {
               </Link>
             ))}
             <hr className="border-border my-4" />
-            <Button variant="hero" className="w-full">
+            <Button variant="hero" className="w-full" onClick={() => window.location.href="/contact"}>
               Book Appointment
               <ChevronRight className="w-4 h-4" />
             </Button>

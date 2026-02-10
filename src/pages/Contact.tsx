@@ -28,25 +28,41 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+91 755 402 6900","+91 942 449 1234"],
+    details: [
+      { label: "+91 755 402 6900", link: "tel:+917554026900" },
+      { label: "+91 942 449 1234", link: "tel:+919424491234" },
+    ],
     color: "primary",
   },
   {
     icon: Ambulance,
     title: "Emergency",
-    details: ["24/7 Available"],
+    details: [
+      { label: "24/7 Available", link: "tel:+917554026900" },
+    ],
     color: "accent",
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["samarpanhospitalonline@gmail.com", ],
+    details: [
+      {
+        label: "samarpanhospitalonline@gmail.com",
+        link: "mailto:samarpanhospitalonline@gmail.com",
+      },
+    ],
     color: "primary",
   },
   {
     icon: MapPin,
     title: "Address",
-    details: ["Samarpan Hospital Kidney and Multispeciality Center", "Near Berchha Mawa Bhandar,", "Viceroy Park Rd, Rohit Nagar", "Bawadiya Kalan, Bhopal, MP 462039"],
+    details: [
+      {
+        label:
+          "Samarpan Hospital Kidney and Multispeciality Center, Near Berchha Mawa Bhandar, Viceroy Park Rd, Rohit Nagar, Bawadiya Kalan, Bhopal, MP 462039",
+        link: "https://maps.app.goo.gl/xUBu7RHoWnAFJAjH6",
+      },
+    ],
     color: "primary",
   },
 ];
@@ -158,9 +174,17 @@ setShowSuccessModal(true);
                   <info.icon className={`w-7 h-7 text-${info.color}`} />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">{info.title}</h3>
-                {info.details.map((detail, idx) => (
-                  <p key={idx} className="text-muted-foreground text-sm">{detail}</p>
-                ))}
+              {info.details.map((item, idx) => (
+  <a
+    key={idx}
+    href={item.link}
+    target={item.link.startsWith("http") ? "_blank" : undefined}
+    rel="noopener noreferrer"
+    className="block text-muted-foreground text-sm hover:text-primary transition-colors"
+  >
+    {item.label}
+  </a>
+))}
               </div>
             ))}
           </div>
@@ -342,13 +366,12 @@ setShowSuccessModal(true);
               Check out our frequently asked questions or speak with our patient care team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg">
-                <Phone className="w-5 h-5" />
-                Call Now: +91 755 402 6900
-              </Button>
-              <Button variant="outline" size="lg">
-                View FAQs
-              </Button>
+             <Button asChild variant="hero" size="lg">
+  <a href="tel:+917554026900">
+    <Phone className="w-5 h-5" />
+    Call Now: +91 755 402 6900
+  </a>
+</Button>
             </div>
           </div>
         </div>

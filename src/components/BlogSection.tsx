@@ -138,7 +138,22 @@ interface Blog {
 
 const BlogSection = () => {
   const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
+const handleShare = (blog: Blog) => {
+  const slug = blog.title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
 
+  const url = `${window.location.origin}/blog/${slug}`;
+
+  navigator.clipboard.writeText(url)
+    .then(() => {
+      alert("Article link copied!");
+    })
+    .catch(() => {
+      alert("Failed to copy link");
+    });
+};
   return (
     <section id="blog" className="section-padding bg-background relative overflow-hidden">
       {/* Background Kidney Decorations */}
@@ -295,14 +310,14 @@ const BlogSection = () => {
 
               {/* Action Buttons */}
               <div className="flex gap-3 pt-6">
-                <Button variant="outline" size="sm" className="flex-1">
+                {/* <Button variant="outline"
+  size="sm"
+  className="flex-1"
+  onClick={() => handleShare(selectedBlog)}>
                   <Share2 className="w-4 h-4" />
                   Share Article
-                </Button>
-                <Button variant="outline" size="sm" className="flex-1">
-                  <Bookmark className="w-4 h-4" />
-                  Save for Later
-                </Button>
+                </Button> */}
+              
               </div>
             </>
           )}

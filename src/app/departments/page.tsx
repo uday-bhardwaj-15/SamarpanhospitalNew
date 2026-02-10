@@ -1,5 +1,10 @@
 import Departments from "@/pages/Departments";
-
+import { Suspense } from "react";
 export default function DepartmentsPage() {
-  return <Departments />;
+  return (
+ <Suspense fallback={null}>
+
+    <Departments />;
+ </Suspense>
+  )
 }

@@ -1,3 +1,4 @@
+'use client'
 import { Award, Users, Heart, Target, Calendar, Trophy, GraduationCap, Building2, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
@@ -352,13 +353,11 @@ const About = () => {
               Book an appointment today and let our expert team take care of your kidney health.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg">
+              <Button variant="hero" size="lg" onClick={()=>{window.location.href="/contact"}}>
                 <Calendar className="w-5 h-5" />
                 Book Appointment
               </Button>
-              <Button variant="outline" size="lg">
-                Contact Us
-              </Button>
+           
             </div>
           </div>
         </div>
