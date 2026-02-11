@@ -320,7 +320,7 @@ const Doctors = () => {
 
                   {/* CTA */}
                   <div className="flex flex-col sm:flex-row gap-4 mb-4">
-                    <Button variant="hero" className="flex-1">
+                    <Button variant="hero" className="flex-1" onClick={() => window.location.href="/contact"}>
                       <Calendar className="w-4 h-4 mr-2" />
                       Book Appointment
                     </Button>

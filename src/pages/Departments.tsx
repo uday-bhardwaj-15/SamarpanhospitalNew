@@ -294,10 +294,7 @@ const Departments = () => {
                 <Button variant="hero" className="flex-1" onClick={() => window.location.href="/contact"}>
                   Book Appointment
                 </Button>
-                <Button variant="outline" className="flex-1">
-                  <Phone className="w-4 h-4 mr-2" />
-                  Call Now
-                </Button>
+                
               </div>
               </div>
             </>

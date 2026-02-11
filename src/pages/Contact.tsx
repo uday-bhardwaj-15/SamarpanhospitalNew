@@ -331,24 +331,42 @@ setShowSuccessModal(true);
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3">
-                  <Button variant="outline" className="h-auto py-4 flex-col gap-2">
-                    <Phone className="w-5 h-5 text-primary" />
-                    <span className="text-sm">Call Reception</span>
-                  </Button>
-                  <Button variant="outline" className="h-auto py-4 flex-col gap-2 border-accent/30 hover:bg-accent/5">
-                    <Ambulance className="w-5 h-5 text-accent" />
-                    <span className="text-sm">Emergency</span>
-                  </Button>
-                  <Button variant="outline" className="h-auto py-4 flex-col gap-2">
-                    <Mail className="w-5 h-5 text-primary" />
-                    <span className="text-sm">Email Us</span>
-                  </Button>
-                  <Button variant="outline" className="h-auto py-4 flex-col gap-2">
-                    <MessageSquare className="w-5 h-5 text-primary" />
-                    <span className="text-sm">WhatsApp</span>
-                  </Button>
-                </div>
+              <div className="grid grid-cols-2 gap-3">
+  {contactInfo.map((item, index) => {
+    const Icon = item.icon;
+
+    return (
+      <a
+        key={index}
+        href={item.details[0].link}
+        target={item.title === "Address" ? "_blank" : "_self"}
+        rel="noopener noreferrer"
+        className="group"
+      >
+        <Button
+          variant="outline"
+          className={`h-auto py-4 flex-col gap-2 w-full 
+          transition-all duration-300
+          ${item.color === "accent"
+              ? "border-accent/30 hover:bg-accent hover:border-accent"
+              : "hover:bg-primary hover:border-primary"
+            }`}
+        >
+          <Icon
+            className={`w-5 h-5 transition-colors duration-300
+            ${item.color === "accent"
+                ? "text-accent group-hover:text-white"
+                : "text-primary group-hover:text-white"
+              }`}
+          />
+          <span className="text-sm group-hover:text-white transition-colors duration-300">
+            {item.title}
+          </span>
+        </Button>
+      </a>
+    );
+  })}
+</div>
               </div>
             </div>
           </div>

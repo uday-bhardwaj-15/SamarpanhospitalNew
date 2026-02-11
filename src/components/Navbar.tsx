@@ -45,7 +45,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
         <Image
-  src={showScrolledStyle ? "/logo-trans.png" : "/logo-trans-white.png"}
+  src={showScrolledStyle ? "/logo-trans.png" : "/logo-trans-white-full.png"}
   alt="Samarpan Hospital Logo"
   width={50}
   height={50}

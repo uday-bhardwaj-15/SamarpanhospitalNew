@@ -26,7 +26,7 @@ const quickLinks = [
     icon: Users,
     title: "Our Doctors",
     description: "Meet our team of expert nephrologists",
-     href:"/doctors"
+     href:"/team"
   },
   {
     icon: CalendarCheck,

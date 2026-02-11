@@ -2,16 +2,18 @@ import { Button } from "@/components/ui/button";
 import { Calendar, AlertCircle, ArrowRight, Play, CheckCircle } from "lucide-react";
 import heroImage from "@/assets/hero-hospital.jpg";
 import { getImageSrc } from "@/lib/utils";
-
+import Image from "next/image";
 const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img 
-          src={getImageSrc(heroImage)} 
+        <Image 
+          src="/hospital.jpeg" 
           alt="Samarpan Hospital Hospital" 
           className="w-full h-full object-cover"
+          width="350"
+          height="350"
         />
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-foreground/95 via-foreground/80 to-foreground/40" />
