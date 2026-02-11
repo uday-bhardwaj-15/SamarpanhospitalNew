@@ -57,7 +57,7 @@ const Navbar = () => {
               Samarpan Hospital
             </span>
             <span className={`text-xs font-medium transition-colors duration-300 ${showScrolledStyle ? 'text-muted-foreground' : 'text-white/70'}`}>
-              Kidney Hospital
+           A kidney care & multispeciality Hospital
             </span>
           </div>
         </Link>
