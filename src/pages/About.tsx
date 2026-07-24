@@ -43,15 +43,15 @@ const timeline = [
     icon: Target,
   },
   {
-    year: "2012",
-    title: "NABH Accreditation",
+    year: "2010",
+    title: "Our Dialysis Unit Installed",
     description:
-      "Received NABH accreditation for maintaining highest standards of patient care and hospital management.",
+      "The hospital commissioned its dialysis unit, expanding its services to provide dialysis treatment for patients with kidney-related conditions.",
     icon: Award,
   },
   {
     year: "2016",
-    title: "1000+ Transplants Milestone",
+    title: "100+ Transplants Milestone",
     description:
       "Celebrated our 1000th successful kidney transplant with a 98% success rate.",
     icon: Trophy,
@@ -73,7 +73,7 @@ const timeline = [
 ];
 
 const certifications = [
-  { name: "NABH Accredited", year: "Since 2012" },
+  // { name: "NABH Accredited", year: "Since 2012" },
   { name: "ISO 9001:2015", year: "Since 2008" },
   { name: "JCI Accredited", year: "Since 2018" },
   { name: "NABL Certified Lab", year: "Since 2010" },
@@ -246,7 +246,7 @@ const About = () => {
 
               {/* Floating Badge */}
               <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-6 rounded-2xl shadow-glow">
-                <p className="text-3xl font-bold">10+</p>
+                <p className="text-3xl font-bold">25+</p>
                 <p className="text-sm">Years Leading</p>
               </div>
             </div>
