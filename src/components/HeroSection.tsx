@@ -1,16 +1,25 @@
 import { Button } from "@/components/ui/button";
-import { Calendar, AlertCircle, ArrowRight, Play, CheckCircle } from "lucide-react";
+import {
+  Calendar,
+  AlertCircle,
+  ArrowRight,
+  Play,
+  CheckCircle,
+} from "lucide-react";
 import heroImage from "@/assets/hero-hospital.jpg";
 import { getImageSrc } from "@/lib/utils";
 import Image from "next/image";
 const HeroSection = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center overflow-hidden"
+    >
       {/* Background Image */}
       <div className="absolute inset-0">
-        <Image 
-          src="/hospital.jpeg" 
-          alt="Samarpan Hospital Hospital" 
+        <Image
+          src="/hero.webp"
+          alt="Samarpan Hospital Hospital"
           className="w-full h-full object-cover"
           width="350"
           height="350"
@@ -30,7 +39,7 @@ const HeroSection = () => {
           <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-xl border border-white/20 px-5 py-2.5 rounded-full mb-8 animate-fade-up">
             <span className="w-2.5 h-2.5 bg-accent rounded-full animate-pulse" />
             <span className="text-sm font-medium text-white/90">
-             Central India's Most Advanced Kidney Care Center
+              Central India's Most Advanced Kidney Care Center
             </span>
           </div>
 
@@ -43,18 +52,29 @@ const HeroSection = () => {
 
           {/* Subheading */}
           <p className="text-lg md:text-xl text-white/70 max-w-xl mb-10 leading-relaxed animate-fade-up">
-            Experience world-class nephrology services with cutting-edge dialysis technology, 
-            expert transplant surgeons, and compassionate 24/7 care.
+            Experience world-class nephrology services with cutting-edge
+            dialysis technology, expert transplant surgeons, and compassionate
+            24/7 care.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-16 animate-fade-up">
-            <Button variant="hero" size="xl" className="group" onClick={() => window.location.href = "/contact"}>
+            <Button
+              variant="hero"
+              size="xl"
+              className="group"
+              onClick={() => (window.location.href = "/contact")}
+            >
               <Calendar className="w-5 h-5" />
               Book Appointment
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="hero-light" size="xl" className="group" onClick={() => window.location.href = "/"}>
+            <Button
+              variant="hero-light"
+              size="xl"
+              className="group"
+              onClick={() => (window.location.href = "/")}
+            >
               <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
                 <Play className="w-4 h-4 fill-current" />
               </div>
@@ -64,12 +84,11 @@ const HeroSection = () => {
 
           {/* Trust Badges */}
           <div className="flex flex-wrap gap-6 animate-fade-up">
-            {[
-              "NABH Accredited",
-              "24/7 Emergency",
-              "50K+ Patients",
-            ].map((badge, index) => (
-              <div key={index} className="flex items-center gap-2 text-white/80">
+            {["24/7 Emergency", "25K+ Patients"].map((badge, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-2 text-white/80"
+              >
                 <CheckCircle className="w-5 h-5 text-accent" />
                 <span className="text-sm font-medium">{badge}</span>
               </div>

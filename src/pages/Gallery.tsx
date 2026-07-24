@@ -1,168 +1,207 @@
 "use client";
 
 import { useState } from "react";
-import { getImageSrc } from "@/lib/utils";
-import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-} from "@/components/ui/dialog";
+import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import dialysisImg from "@/assets/dialysis-room.jpg";
-import receptionImg from "@/assets/reception.jpg";
-import patientRoomImg from "@/assets/patient-room.jpg";
-import icuImg from "@/assets/icu.jpg";
-import labImg from "@/assets/laboratory.jpg";
-import surgeryImg from "@/assets/surgery.jpg";
-import heroImg from "@/assets/hero-hospital.jpg";
 
 const galleryImages = [
   {
     id: 1,
-    title: "Hospital Exterior",
-    category: "Building",
-    image: heroImg,
-    size: "large",
-    description: "Our modern hospital building with state-of-the-art architecture.",
+    src: "/gallery/DSC_8313.webp",
+    alt: "Gallery photo 1",
   },
   {
     id: 2,
-    title: "Modern Reception",
-    category: "Facility",
-    image: receptionImg,
-    size: "medium",
-    description: "Welcoming reception area designed for patient comfort.",
+    src: "/gallery/DSC_8332.webp",
+    alt: "Gallery photo 2",
   },
   {
     id: 3,
-    title: "Dialysis Unit",
-    category: "Treatment",
-    image: dialysisImg,
-    size: "small",
-    description: "Advanced dialysis center with latest equipment.",
+    src: "/gallery/DSC_8334.webp",
+    alt: "Gallery photo 3",
   },
   {
     id: 4,
-    title: "ICU Ward",
-    category: "Critical Care",
-    image: icuImg,
-    size: "medium",
-    description: "24/7 intensive care unit with advanced monitoring.",
+    src: "/gallery/DSC_8375.webp",
+    alt: "Gallery photo 4",
   },
   {
     id: 5,
-    title: "Patient Room",
-    category: "Comfort",
-    image: patientRoomImg,
-    size: "small",
-    description: "Comfortable private rooms for patient recovery.",
+    src: "/gallery/DSC_8376.webp",
+    alt: "Gallery photo 5",
   },
   {
     id: 6,
-    title: "Laboratory",
-    category: "Diagnostics",
-    image: labImg,
-    size: "large",
-    description: "NABL accredited diagnostic laboratory.",
+    src: "/gallery/DSC_8380.webp",
+    alt: "Gallery photo 6",
   },
   {
     id: 7,
-    title: "Surgical Suite",
-    category: "Surgery",
-    image: surgeryImg,
-    size: "medium",
-    description: "State-of-the-art operation theaters.",
+    src: "/gallery/DSC_8385.webp",
+    alt: "Gallery photo 7",
   },
   {
     id: 8,
-    title: "Dialysis Station",
-    category: "Treatment",
-    image: dialysisImg,
-    size: "small",
-    description: "Individual dialysis stations for patient privacy.",
+    src: "/gallery/DSC_8387.webp",
+    alt: "Gallery photo 8",
   },
   {
     id: 9,
-    title: "Recovery Area",
-    category: "Care",
-    image: patientRoomImg,
-    size: "medium",
-    description: "Peaceful recovery spaces for healing.",
+    src: "/gallery/DSC_8389.webp",
+    alt: "Gallery photo 9",
   },
   {
     id: 10,
-    title: "Emergency Unit",
-    category: "Emergency",
-    image: icuImg,
-    size: "small",
-    description: "24/7 emergency services with rapid response.",
+    src: "/gallery/DSC_8399.webp",
+    alt: "Gallery photo 10",
   },
   {
     id: 11,
-    title: "Waiting Lounge",
-    category: "Facility",
-    image: receptionImg,
-    size: "large",
-    description: "Comfortable waiting areas for families.",
+    src: "/gallery/DSC_8404.webp",
+    alt: "Gallery photo 11",
   },
   {
     id: 12,
-    title: "Research Lab",
-    category: "Research",
-    image: labImg,
-    size: "medium",
-    description: "Advanced research facilities for medical innovation.",
+    src: "/gallery/DSC_8415.webp",
+    alt: "Gallery photo 12",
+  },
+  {
+    id: 13,
+    src: "/gallery/DSC_8430.webp",
+    alt: "Gallery photo 13",
+  },
+  {
+    id: 14,
+    src: "/gallery/DSC_8431.webp",
+    alt: "Gallery photo 14",
+  },
+  {
+    id: 15,
+    src: "/gallery/DSC_8438.webp",
+    alt: "Gallery photo 15",
+  },
+  {
+    id: 16,
+    src: "/gallery/DSC_8442.webp",
+    alt: "Gallery photo 16",
+  },
+  {
+    id: 17,
+    src: "/gallery/DSC_8446.webp",
+    alt: "Gallery photo 17",
+  },
+  {
+    id: 18,
+    src: "/gallery/DSC_8451.webp",
+    alt: "Gallery photo 18",
+  },
+  {
+    id: 19,
+    src: "/gallery/DSC_8466.webp",
+    alt: "Gallery photo 19",
+  },
+  {
+    id: 20,
+    src: "/gallery/DSC_8470.webp",
+    alt: "Gallery photo 20",
+  },
+  {
+    id: 21,
+    src: "/gallery/DSC_8483-Pano.webp",
+    alt: "Gallery photo 21",
+  },
+  {
+    id: 22,
+    src: "/gallery/DSC_8484-Pano.webp",
+    alt: "Gallery photo 22",
+  },
+  {
+    id: 23,
+    src: "/gallery/DSC_8492-Pano.webp",
+    alt: "Gallery photo 23",
+  },
+  {
+    id: 24,
+    src: "/gallery/DSC_8519-Pano.webp",
+    alt: "Gallery photo 24",
+  },
+  {
+    id: 25,
+    src: "/gallery/DSC_8593.webp",
+    alt: "Gallery photo 25",
+  },
+  {
+    id: 26,
+    src: "/gallery/DSC_8603.webp",
+    alt: "Gallery photo 26",
+  },
+  {
+    id: 27,
+    src: "/gallery/DSC_8604.webp",
+    alt: "Gallery photo 27",
+  },
+  {
+    id: 28,
+    src: "/gallery/DSC_8606.webp",
+    alt: "Gallery photo 28",
+  },
+  {
+    id: 29,
+    src: "/gallery/DSC_8623.webp",
+    alt: "Gallery photo 29",
+  },
+  {
+    id: 30,
+    src: "/gallery/DSC_8638.webp",
+    alt: "Gallery photo 30",
+  },
+  {
+    id: 31,
+    src: "/gallery/DSC_8649-Pano.webp",
+    alt: "Gallery photo 31",
   },
 ];
 
-const categories = ["All", "Building", "Facility", "Treatment", "Critical Care", "Comfort", "Diagnostics", "Surgery", "Care", "Emergency", "Research"];
+// Bento-grid size pattern — cycles through sizes so the grid looks varied
+const SIZES = [
+  "col-span-2 row-span-2", // large
+  "col-span-1 row-span-2", // tall
+  "col-span-1 row-span-1", // small
+  "col-span-1 row-span-1", // small
+  "col-span-2 row-span-1", // wide
+  "col-span-1 row-span-1", // small
+  "col-span-1 row-span-1", // small
+];
 
-const Gallery = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
+const getSize = (index: number) => SIZES[index % SIZES.length];
 
-  const filteredImages = selectedCategory === "All" 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === selectedCategory);
+export default function Gallery() {
+  const [visibleCount, setVisibleCount] = useState(6);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const openLightbox = (image: typeof galleryImages[0], index: number) => {
-    setSelectedImage(image);
-    setCurrentIndex(index);
-  };
+  const openLightbox = (index: number) => setLightboxIndex(index);
+  const closeLightbox = () => setLightboxIndex(null);
 
-  const navigateImage = (direction: "prev" | "next") => {
-    const newIndex = direction === "next" 
-      ? (currentIndex + 1) % filteredImages.length 
-      : (currentIndex - 1 + filteredImages.length) % filteredImages.length;
-    setCurrentIndex(newIndex);
-    setSelectedImage(filteredImages[newIndex]);
-  };
+  const prev = () =>
+    setLightboxIndex((i) =>
+      i === null ? null : (i - 1 + galleryImages.length) % galleryImages.length,
+    );
+  const next = () =>
+    setLightboxIndex((i) =>
+      i === null ? null : (i + 1) % galleryImages.length,
+    );
 
-  // Generate dynamic grid classes based on image size
-  const getGridClass = (size: string, index: number) => {
-    // Create a varied bento grid pattern
-    const patterns = [
-      "col-span-2 row-span-2", // large
-      "col-span-2 row-span-1", // wide
-      "col-span-1 row-span-2", // tall
-      "col-span-1 row-span-1", // small
-    ];
-
-    if (size === "large") return "col-span-2 row-span-2";
-    if (size === "medium") {
-      // Alternate between wide and tall for medium
-      return index % 3 === 0 ? "col-span-2 row-span-1" : "col-span-1 row-span-2";
-    }
-    return "col-span-1 row-span-1";
-  };
+  const current = lightboxIndex !== null ? galleryImages[lightboxIndex] : null;
+  const visibleImages = galleryImages.slice(0, visibleCount);
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
-      {/* Hero Section */}
+
+      {/* ── Hero ─────────────────────────────────────────────────────── */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-primary/10 via-background to-accent/5">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto">
@@ -172,172 +211,144 @@ const Gallery = () => {
               <span className="text-gradient"> Facilities</span>
             </h1>
             <p className="text-lg text-muted-foreground">
-              Take a virtual tour of our state-of-the-art hospital infrastructure and facilities
+              Take a virtual tour of our state-of-the-art hospital
+              infrastructure and facilities
             </p>
           </div>
         </div>
       </section>
 
-      {/* Category Filter */}
-      <section className="py-8 border-b border-border/50  top-20 z-40 glass">
-        <div className="container-custom">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  selectedCategory === category
-                    ? "bg-primary text-primary-foreground shadow-glow"
-                    : "bg-secondary/50 text-foreground hover:bg-primary/10"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Bento Grid Gallery */}
+      {/* ── Bento Grid ───────────────────────────────────────────────── */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[180px] md:auto-rows-[200px]">
-            {filteredImages.map((item, index) => (
+          <div
+            className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"
+            style={{ gridAutoRows: "180px" }}
+          >
+            {visibleImages.map((img, index) => (
               <div
-                key={item.id}
-                className={`group relative rounded-3xl overflow-hidden cursor-pointer ${getGridClass(item.size, index)}`}
-                onClick={() => openLightbox(item, index)}
+                key={img.id}
+                className={`group relative rounded-2xl overflow-hidden cursor-pointer ${getSize(index)}`}
+                onClick={() => openLightbox(index)}
               >
-                {/* Image */}
-                <img 
-                  src={getImageSrc(item.image)} 
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                {/* Photo */}
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 25vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  priority={index < 4}
                 />
-                
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                
-                {/* Zoom Icon */}
-                <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                  <ZoomIn className="w-5 h-5 text-white" />
+
+                {/* Dark vignette on hover only */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-400" />
+
+                {/* Zoom icon */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-11 h-11 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center">
+                    <ZoomIn className="w-5 h-5 text-white" />
+                  </div>
                 </div>
 
-                {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                  <span className="text-xs text-accent font-medium uppercase tracking-wider">
-                    {item.category}
-                  </span>
-                  <h3 className="text-xl font-bold text-white mt-1">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-white/80 mt-1 line-clamp-2">
-                    {item.description}
-                  </p>
-                </div>
-
-                {/* Border Glow on Hover */}
-                <div className="absolute inset-0 rounded-3xl border-2 border-primary/0 group-hover:border-primary/50 transition-colors duration-500" />
+                {/* Border glow */}
+                <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/50 transition-colors duration-500 pointer-events-none" />
               </div>
             ))}
           </div>
 
-          {filteredImages.length === 0 && (
-            <div className="text-center py-20">
-              <p className="text-xl text-muted-foreground">No images found in this category.</p>
+          {visibleCount < galleryImages.length && (
+            <div className="mt-12 text-center">
+              <Button
+                variant="hero"
+                size="lg"
+                onClick={() => setVisibleCount((prev) => prev + 6)}
+              >
+                Load More Images
+              </Button>
             </div>
           )}
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* ── Stats ────────────────────────────────────────────────────── */}
       <section className="section-padding bg-gradient-subtle">
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center p-6">
-              <p className="text-4xl font-bold text-gradient">200+</p>
-              <p className="text-muted-foreground mt-2">Hospital Beds</p>
-            </div>
-            <div className="text-center p-6">
-              <p className="text-4xl font-bold text-gradient">50+</p>
-              <p className="text-muted-foreground mt-2">Dialysis Stations</p>
-            </div>
-            <div className="text-center p-6">
-              <p className="text-4xl font-bold text-gradient">10</p>
-              <p className="text-muted-foreground mt-2">Operation Theaters</p>
-            </div>
-            <div className="text-center p-6">
-              <p className="text-4xl font-bold text-gradient">5</p>
-              <p className="text-muted-foreground mt-2">ICU Units</p>
-            </div>
+            {[
+              { value: "200+", label: "Hospital Beds" },
+              { value: "50+", label: "Dialysis Stations" },
+              { value: "10", label: "Operation Theaters" },
+              { value: "5", label: "ICU Units" },
+            ].map((s) => (
+              <div key={s.label} className="text-center p-6">
+                <p className="text-4xl font-bold text-gradient">{s.value}</p>
+                <p className="text-muted-foreground mt-2">{s.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Lightbox Dialog */}
-      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="max-w-6xl p-0 bg-black/95 border-none">
-          {selectedImage && (
-            <div className="relative">
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-              >
-                <X className="w-5 h-5" />
-              </button>
+      {/* ── Lightbox ─────────────────────────────────────────────────── */}
+      {current && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm"
+          onClick={closeLightbox}
+        >
+          <div
+            className="relative w-full max-w-5xl mx-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close */}
+            <button
+              onClick={closeLightbox}
+              className="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
 
-              {/* Navigation Arrows */}
-              <button
-                onClick={() => navigateImage("prev")}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <button
-                onClick={() => navigateImage("next")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
+            {/* Prev */}
+            <button
+              onClick={prev}
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-colors"
+              aria-label="Previous"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
 
-              {/* Image */}
-              <div className="aspect-video">
-                <img
-                  src={getImageSrc(selectedImage.image)}
-                  alt={selectedImage.title}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-
-              {/* Info Bar */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-                <div className="flex items-end justify-between">
-                  <div>
-                    <span className="text-accent text-sm font-medium uppercase tracking-wider">
-                      {selectedImage.category}
-                    </span>
-                    <h3 className="text-2xl font-bold text-white mt-1">
-                      {selectedImage.title}
-                    </h3>
-                    <p className="text-white/70 mt-1 max-w-xl">
-                      {selectedImage.description}
-                    </p>
-                  </div>
-                  <div className="text-white/50 text-sm">
-                    {currentIndex + 1} / {filteredImages.length}
-                  </div>
-                </div>
-              </div>
+            {/* Image */}
+            <div className="relative aspect-video rounded-xl overflow-hidden">
+              <Image
+                key={current.id}
+                src={current.src}
+                alt={current.alt}
+                fill
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                className="object-contain"
+                priority
+              />
             </div>
-          )}
-        </DialogContent>
-      </Dialog>
+
+            {/* Next */}
+            <button
+              onClick={next}
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-colors"
+              aria-label="Next"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+
+            {/* Counter */}
+            <p className="text-center text-white/50 text-sm mt-4">
+              {(lightboxIndex ?? 0) + 1} / {galleryImages.length}
+            </p>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </div>
   );
-};
-
-export default Gallery;
+}
